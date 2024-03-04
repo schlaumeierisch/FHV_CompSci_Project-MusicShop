@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.musicshopfx.CheckoutController">
+    <children>
+        <AnchorPane prefHeight="46.0" prefWidth="800.0" style="-fx-background-color: #002d4c;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="14.0" layoutY="8.0" text="Checkout" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+            </children></AnchorPane>
+        <AnchorPane prefHeight="200.0" prefWidth="60.0" style="-fx-background-color: f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="46.0">
+            <children>
+                <Line endX="62.0" startX="62.0" startY="460.0" stroke="#9a9a9a" strokeWidth="0.5" visible="false" AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="61.5" AnchorPane.topAnchor="-0.5" />
+                <VBox fx:id="navbarVbox" layoutY="90.0" prefHeight="405.0" prefWidth="60.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane prefHeight="30.0" prefWidth="30.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="413.0">
+               <children>
+                  <ImageView fx:id="logoutIconImage" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#logoutSymbolClicked" onMousePressed="#logoutSymbolClicked" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@../../../images/logout.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="82.0" layoutY="66.0" prefHeight="379.0" prefWidth="700.0" style="-fx-background-color: white; -fx-border-color: #9a9a9a;" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="66.0">
+            <children>
+                <Label layoutX="14.0" layoutY="-8.0" style="-fx-background-color: white;" text="  Checkout Options  " />
+            <RadioButton fx:id="anonymousCustomerRadioButton" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" selected="true" text="Anonymous Customer">
+               <toggleGroup>
+                  <ToggleGroup fx:id="customerSettingsToggleGroup" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="existingCustomerRadioButton" layoutX="14.0" layoutY="87.0" mnemonicParsing="false" text="Existing Customer" toggleGroup="$customerSettingsToggleGroup" />
+            <RadioButton fx:id="cashRadioButton" layoutX="267.0" layoutY="61.0" mnemonicParsing="false" selected="true" text="Cash">
+               <toggleGroup>
+                  <ToggleGroup fx:id="paymentMethod" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="creditCardRadioButton" layoutX="267.0" layoutY="87.0" mnemonicParsing="false" text="Credit Card" toggleGroup="$paymentMethod" />
+            <Label layoutX="14.0" layoutY="32.0" text="Customer Type:" />
+            <Label layoutX="266.0" layoutY="32.0" text="Payment Method:" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="82.0" layoutY="199.0" prefHeight="246.0" prefWidth="700.0" style="-fx-background-color: white; -fx-border-color: #9a9a9a;" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="199.0">
+            <children>
+                <Label layoutX="14.0" layoutY="-8.0" style="-fx-background-color: white;" text="  Customer Search  " />
+                <Label fx:id="addToCartLabel" layoutX="346.0" layoutY="255.0" textFill="#0fa314" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="215.0" />
+            <TextField fx:id="customerSearchTextField" disable="true" layoutX="14.0" layoutY="28.0" prefHeight="25.0" prefWidth="231.0" promptText="Customer Name" />
+            <Button fx:id="searchButton" disable="true" layoutX="252.0" layoutY="28.0" mnemonicParsing="false" onAction="#customerSearchButtonClicked" text="Search" />
+            <TableView fx:id="customerTableView" disable="true" layoutX="14.0" layoutY="66.0" prefHeight="168.0" prefWidth="669.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="66.0">
+              <columns>
+                <TableColumn fx:id="firstNameCol" prefWidth="174.0" text="First Name" />
+                  <TableColumn fx:id="familyNameCol" prefWidth="174.0" text="Family Name" />
+                <TableColumn fx:id="emailAddressCol" minWidth="0.0" prefWidth="322.0" text="Email Address" />
+              </columns>
+            </TableView>
+            </children>
+        </AnchorPane>
+      <Button fx:id="checkoutButton" layoutX="716.0" layoutY="461.0" mnemonicParsing="false" onAction="#checkoutButtonClicked" text="Checkout" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="18.0" />
+      <Label fx:id="checkoutErrorLabel" layoutX="87.0" layoutY="465.0" prefHeight="17.0" prefWidth="627.0" textFill="#d91b1b" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="87.0" />
+    </children>
+</AnchorPane>

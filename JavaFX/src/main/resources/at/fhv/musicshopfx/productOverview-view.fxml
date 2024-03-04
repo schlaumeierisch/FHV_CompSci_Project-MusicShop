@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.musicshopfx.MusicOverviewController">
+    <children>
+        <AnchorPane prefHeight="46.0" prefWidth="800.0" style="-fx-background-color: #002d4c;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="14.0" layoutY="8.0" text="Music Overview" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+            </children></AnchorPane>
+        <AnchorPane prefHeight="200.0" prefWidth="60.0" style="-fx-background-color: f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="46.0">
+            <children>
+                <Line endX="62.0" startX="62.0" startY="460.0" stroke="#9a9a9a" strokeWidth="0.5" visible="false" AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="61.5" AnchorPane.topAnchor="-0.5" />
+                <VBox fx:id="navbarVbox" layoutY="90.0" prefHeight="405.0" prefWidth="60.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane layoutX="17.0" layoutY="410.0" prefHeight="30.0" prefWidth="30.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="413.0">
+               <children>
+                  <ImageView fx:id="logoutIconImage" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#logoutSymbolClicked" onMousePressed="#logoutSymbolClicked" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@../../../images/logout.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="82.0" layoutY="66.0" prefHeight="415.0" prefWidth="700.0" style="-fx-background-color: white; -fx-border-color: #9a9a9a;" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="66.0">
+            <children>
+                <Label layoutX="14.0" layoutY="-8.0" style="-fx-background-color: white;" text="  Album Info  " />
+                <Label layoutX="14.0" layoutY="21.0" text="Album Title">
+                    <font>
+                        <Font size="10.0" />
+                    </font></Label>
+                <Label layoutX="14.0" layoutY="73.0" text="Artist">
+                    <font>
+                        <Font size="10.0" />
+                    </font></Label>
+                <Label layoutX="200.0" layoutY="21.0" text="Medium Type">
+                    <font>
+                        <Font size="10.0" />
+                    </font></Label>
+                <Label layoutX="202.0" layoutY="73.0" text="Release Date">
+                    <font>
+                        <Font size="10.0" />
+                    </font></Label>
+                <Label layoutX="391.0" layoutY="73.0" text="Price">
+                    <font>
+                        <Font size="10.0" />
+                    </font></Label>
+                <Label layoutX="389.0" layoutY="21.0" text="Stock">
+                    <font>
+                        <Font size="10.0" />
+                    </font></Label>
+                <Label fx:id="albumTitleLabel" layoutX="15.0" layoutY="36.0" text="Bam Bam" />
+                <Label fx:id="mediumTypeLabel" layoutX="202.0" layoutY="36.0" text="CD" />
+                <Label fx:id="stockLabel" layoutX="389.0" layoutY="36.0" text="42" />
+                <Label fx:id="artistLabel" layoutX="15.0" layoutY="88.0" text="Seeed" />
+                <Label fx:id="releaseDateLabel" layoutX="202.0" layoutY="88.0" text="2012-08-26" />
+                <Label fx:id="priceLabel" layoutX="390.0" layoutY="88.0" text="12 €" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="82.0" layoutY="199.0" prefHeight="282.0" prefWidth="700.0" style="-fx-background-color: white; -fx-border-color: #9a9a9a;" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="199.0">
+            <children>
+                <Label layoutX="14.0" layoutY="-8.0" style="-fx-background-color: white;" text="  Songs  " />
+                <TableView fx:id="songsTableView" focusTraversable="false" layoutX="19.0" layoutY="24.0" prefHeight="213.0" prefWidth="656.0" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="23.0">
+                    <columns>
+                        <TableColumn fx:id="titleCol" prefWidth="171.0" text="Title" />
+                        <TableColumn fx:id="genreCol" prefWidth="141.0" text="Genre" />
+                        <TableColumn fx:id="artistCol" prefWidth="163.0" text="Artist" />
+                    </columns>
+                </TableView>
+                <Button fx:id="addToCartButton" layoutX="595.0" layoutY="244.0" mnemonicParsing="false" onAction="#addToCartButtonClicked" text="Add to Cart" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="27.0" />
+                <TextField fx:id="quantityTextField" layoutX="403.0" layoutY="243.0" prefHeight="25.0" prefWidth="73.0" text="1" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="226.0" />
+                <Label fx:id="orderSuccessLabel" layoutX="291.0" layoutY="250.0" text="Order successful!" textFill="#0fa314" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="318.0" />
+            <Label fx:id="quantityLabel" layoutX="402.0" layoutY="234.0" text="Quantity" visible="false" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="260.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Button fx:id="orderButton" layoutX="507.0" layoutY="243.0" mnemonicParsing="false" onAction="#orderButtonClicked" prefHeight="25.0" prefWidth="78.0" text="Order" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="115.0" />
+            <Label fx:id="addToCartErrorLabel" layoutX="156.0" layoutY="242.0" style="-fx-max-width: 225px;" text="Not enough stock available, please reduce quantity or order additional itmes." textFill="#d91b1b" visible="false" wrapText="true" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="319.0" />
+            <Label fx:id="invalidQtyErrorLabel" layoutX="199.0" layoutY="250.0" text="Please enter a valid quantity value." textFill="#d91b1b" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="318.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

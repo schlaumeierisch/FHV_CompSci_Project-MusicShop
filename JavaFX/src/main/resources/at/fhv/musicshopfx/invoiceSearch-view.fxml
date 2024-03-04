@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.musicshopfx.InvoiceSearchController">
+    <children>
+        <AnchorPane prefHeight="46.0" prefWidth="800.0" style="-fx-background-color: #002d4c;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="14.0" layoutY="8.0" text="Invoice Search" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <TextField fx:id="invoiceSearchTextField" layoutX="76.0" layoutY="67.0" prefHeight="25.0" prefWidth="399.0" promptText="Invoice Number..." AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="67.0" />
+        <Button fx:id="invoiceSearchButton" defaultButton="true" layoutX="488.0" layoutY="67.0" mnemonicParsing="false" onAction="#InvoiceSearchButtonClicked" prefHeight="25.0" prefWidth="70.0" text="Search" AnchorPane.rightAnchor="242.0" AnchorPane.topAnchor="67.0" />
+        <TableView fx:id="invoiceView" editable="true" layoutX="76.0" layoutY="106.0" onMouseClicked="#invoiceLineItemEdited" onMousePressed="#invoiceLineItemEdited" prefHeight="342.0" prefWidth="707.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="106.0">
+            <columns>
+                <TableColumn fx:id="albumTitleCol" editable="false" prefWidth="180.0" sortable="false" style="-fx-alignment: CENTER;" text="Album" />
+                <TableColumn fx:id="mediumTypeCol" editable="false" prefWidth="78.0" sortable="false" style="-fx-alignment: CENTER;" text="Medium" />
+                <TableColumn fx:id="priceCol" editable="false" prefWidth="57.0" sortable="false" style="-fx-alignment: CENTER;" text="Price" />
+                <TableColumn fx:id="quantityCol" editable="false" prefWidth="57.0" sortable="false" style="-fx-alignment: CENTER;" text="Qty." />
+            <TableColumn fx:id="minusCol" editable="false" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" sortable="false" style="-fx-font-size: 16px; -fx-alignment: CENTER; -fx-font-weight: bold;" />
+                <TableColumn fx:id="returnQuantityCol" prefWidth="100.0" sortable="false" style="-fx-alignment: CENTER;" text="Return Qty." />
+            <TableColumn fx:id="plusCol" editable="false" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" sortable="false" style="-fx-font-size: 16px; -fx-alignment: CENTER; -fx-font-weight: bold;" />
+                <TableColumn fx:id="returnedQuantityCol" editable="false" prefWidth="100.0" sortable="false" style="-fx-alignment: CENTER;" text="Returned Qty." />
+            </columns>
+        </TableView>
+        <AnchorPane prefHeight="200.0" prefWidth="60.0" style="-fx-background-color: f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="46.0">
+            <children>
+                <Line endX="62.0" startX="62.0" startY="460.0" stroke="#9a9a9a" strokeWidth="0.5" visible="false" AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="61.5" AnchorPane.topAnchor="-0.5" />
+                <VBox fx:id="navbarVbox" layoutY="90.0" prefHeight="405.0" prefWidth="60.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane prefHeight="30.0" prefWidth="30.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="413.0">
+               <children>
+                  <ImageView fx:id="logoutIconImage" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#logoutSymbolClicked" onMousePressed="#logoutSymbolClicked" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@../../../images/logout.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            </children>
+        </AnchorPane>
+      <Button fx:id="returnButton" layoutX="657.0" layoutY="461.0" mnemonicParsing="false" onMouseClicked="#returnButtonClicked" onMousePressed="#returnButtonClicked" prefHeight="19.0" prefWidth="118.0" text="Return" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="26.0" />
+      <Label fx:id="invoiceErrorLabel" layoutX="356.0" layoutY="265.0" textFill="#0fa314" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="70.0" />
+    </children>
+</AnchorPane>

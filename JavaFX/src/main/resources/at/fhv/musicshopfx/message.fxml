@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="messageAnchorPane" minHeight="171.0" prefHeight="171.0" prefWidth="655.0" style="-fx-border-color: #525252; -fx-border-width: 0 0 1px 0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.musicshopfx.MessageController">
+   <children>
+      <Label fx:id="messageTopic" layoutX="633.0" layoutY="14.0" text="Topic" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="messageTitle" layoutX="14.0" layoutY="14.0" text="Message Title" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="readMoreButton" layoutX="586.0" layoutY="111.0" mnemonicParsing="false" onAction="#readMoreButtonOnClick" prefHeight="25.0" prefWidth="100.0" text="Read More" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="30.0" />
+      <Button fx:id="deleteButton" layoutX="411.0" layoutY="130.0" mnemonicParsing="false" onAction="#deleteButtonOnClick" prefHeight="25.0" prefWidth="100.0" text="Delete" textFill="RED" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="144.0" />
+      <AnchorPane layoutX="2.0" layoutY="2.0" prefHeight="125.0" prefWidth="655.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextArea fx:id="messageText" editable="false" layoutX="14.0" layoutY="44.0" prefHeight="91.0" prefWidth="616.0" promptText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo ex ea commodo ex ea commodo…" style="-fx-background-color: f4f4f4;" wrapText="true" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="44.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

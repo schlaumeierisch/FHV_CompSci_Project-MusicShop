@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.musicshopfx.DetailedMessageController">
+    <children>
+        <AnchorPane prefHeight="46.0" prefWidth="800.0" style="-fx-background-color: #002d4c;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="14.0" layoutY="8.0" text="Message Overview" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="200.0" prefWidth="60.0" style="-fx-background-color: f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="46.0">
+            <children>
+                <Line endX="62.0" startX="62.0" startY="460.0" stroke="#9a9a9a" strokeWidth="0.5" visible="false" AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="61.5" AnchorPane.topAnchor="-0.5" />
+                <VBox fx:id="navbarVbox" layoutY="90.0" prefHeight="435.0" prefWidth="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <AnchorPane prefHeight="30.0" prefWidth="30.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="413.0">
+                    <children>
+                        <ImageView fx:id="logoutIconImage" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#logoutSymbolClicked" onMousePressed="#logoutSymbolClicked" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <image>
+                                <Image url="@../../../images/logout.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <Label fx:id="messageErrorLabel" layoutX="355.0" layoutY="69.0" AnchorPane.leftAnchor="375.0" AnchorPane.topAnchor="69.0" />
+      <AnchorPane layoutX="73.0" layoutY="67.0" prefHeight="416.0" prefWidth="700.0" style="-fx-border-color: #9a9a9a; -fx-background-color: white;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="66.0">
+         <children>
+            <Label layoutX="14.0" layoutY="-8.0" style="-fx-background-color: white;" text="  Message Details  " AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="-8.0" />
+            <AnchorPane layoutX="1.0" layoutY="109.0" prefHeight="308.0" prefWidth="700.0" style="-fx-border-color: #9a9a9a; -fx-background-color: white;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="130.0">
+               <children>
+                  <TextArea fx:id="messageTextArea" editable="false" layoutX="17.0" layoutY="20.0" prefHeight="248.0" prefWidth="669.0" wrapText="true" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="20.0" />
+               </children></AnchorPane>
+            <Label layoutX="16.0" layoutY="123.0" style="-fx-background-color: white;" text="  Message  " AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="123.0" />
+            <Label layoutX="24.0" layoutY="24.0" text="Title" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="24.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="67.0" text="Sent Date" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="67.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="203.0" layoutY="67.0" text="Expiration Date" AnchorPane.leftAnchor="203.0" AnchorPane.topAnchor="67.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="399.0" layoutY="67.0" text="Topic" AnchorPane.leftAnchor="399.0" AnchorPane.topAnchor="67.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="messageTitleLabel" layoutX="24.0" layoutY="39.0" text="Title of the Message" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="39.0" />
+            <Label fx:id="messageDateLabel" layoutX="24.0" layoutY="82.0" text="2022-04-26 14:56:00" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="82.0" />
+            <Label fx:id="messageExpirationDateLabel" layoutX="203.0" layoutY="82.0" text="2022-04-30 14:56:00" AnchorPane.leftAnchor="203.0" AnchorPane.topAnchor="82.0" />
+            <Label fx:id="messageTopicLabel" layoutX="399.0" layoutY="82.0" text="Order" AnchorPane.leftAnchor="399.0" AnchorPane.topAnchor="82.0" />
+         </children></AnchorPane>
+      <Button layoutX="682.0" layoutY="461.0" mnemonicParsing="false" onAction="#deleteButtonOnClick" prefHeight="25.0" prefWidth="99.0" text="Delete" textFill="RED" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="19.0" />
+    </children>
+</AnchorPane>

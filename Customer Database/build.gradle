@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.tinygroup:org.tinygroup.customerService:2.2.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.3'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    implementation fileTree(dir: 'lib', include: ['*.jar'])
+}
+
+test {
+    useJUnitPlatform()
+}

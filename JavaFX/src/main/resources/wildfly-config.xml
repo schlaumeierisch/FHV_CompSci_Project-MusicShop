@@ -1,0 +1,23 @@
+<configuration>
+    <authentication-client xmlns="urn:elytron:1.0">
+        <authentication-rules>
+            <rule use-configuration="remote">
+                <match-host name="10.0.40.162" />
+            </rule>
+        </authentication-rules>
+        <authentication-configurations>
+            <configuration name="remote">
+                <sasl-mechanism-selector selector="DIGEST-MD5"/>
+                <set-user-name name="admin"/>
+                <credentials>
+                    <clear-password password="dbadmin!2020"/>
+                </credentials>
+            </configuration>
+        </authentication-configurations>
+    </authentication-client>
+    <endpoint xmlns="urn:jboss-remoting:5.0">
+        <connections>
+            <connection destination="http-remoting://10.0.40.162:8080"/>
+        </connections>
+    </endpoint>
+</configuration>

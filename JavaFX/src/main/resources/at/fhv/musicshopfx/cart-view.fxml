@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.musicshopfx.CartController">
+    <children>
+        <AnchorPane prefHeight="46.0" prefWidth="800.0" style="-fx-background-color: #002d4c;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="14.0" layoutY="8.0" text="Shopping Cart" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <TableView fx:id="cartView" editable="true" focusTraversable="false" layoutX="75.0" layoutY="58.0" onMouseClicked="#cartLineItemEdited" onMousePressed="#cartLineItemEdited" prefHeight="371.0" prefWidth="707.0" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="58.0">
+            <columns>
+                <TableColumn fx:id="productCol" editable="false" prefWidth="130.66663360595703" sortable="false" style="-fx-alignment: CENTER;" text="Product" />
+                <TableColumn fx:id="mediumTypeCol" editable="false" prefWidth="106.00004577636719" sortable="false" style="-fx-alignment: CENTER;" text="Medium" />
+            <TableColumn fx:id="stockCol" prefWidth="49.33331298828125" style="-fx-alignment: CENTER;" text="Stock" />
+            <TableColumn fx:id="minusCol" editable="false" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" sortable="false" style="-fx-font-size: 16px; -fx-alignment: CENTER; -fx-font-weight: bold;" />
+                <TableColumn fx:id="quantityCol" prefWidth="73.33331298828125" sortable="false" style="-fx-alignment: CENTER;" text="Quantity" />
+            <TableColumn fx:id="plusCol" editable="false" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" sortable="false" style="-fx-font-size: 16px; -fx-alignment: CENTER; -fx-font-weight: bold;" />
+            <TableColumn fx:id="priceCol" editable="false" minWidth="0.0" prefWidth="68.66665649414062" sortable="false" style="-fx-alignment: CENTER;" text="Price" />
+            <TableColumn editable="false" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" sortable="false" style="-fx-font-size: 16px; -fx-alignment: CENTER; -fx-font-weight: bold;" fx:id="xCol" />
+            </columns>
+        </TableView>
+        <AnchorPane prefHeight="200.0" prefWidth="60.0" style="-fx-background-color: f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="46.0">
+            <children>
+                <Line endX="62.0" startX="62.0" startY="460.0" stroke="#9a9a9a" strokeWidth="0.5" visible="false" AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="61.5" AnchorPane.topAnchor="-0.5" />
+                <VBox fx:id="navbarVbox" layoutY="90.0" prefHeight="405.0" prefWidth="60.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane prefHeight="30.0" prefWidth="30.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="413.0">
+               <children>
+                  <ImageView fx:id="logoutIconImage" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#logoutSymbolClicked" onMousePressed="#logoutSymbolClicked" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@../../../images/logout.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            </children>
+        </AnchorPane>
+      <Label fx:id="totalPriceLabel" layoutX="713.0" layoutY="442.0" prefHeight="18.0" prefWidth="60.0" text="0 €" AnchorPane.bottomAnchor="39.0" AnchorPane.rightAnchor="27.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label layoutX="657.0" layoutY="442.0" prefHeight="18.0" prefWidth="38.0" text="Total:" AnchorPane.bottomAnchor="39.0" AnchorPane.rightAnchor="105.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="buyButton" layoutX="656.0" layoutY="461.0" mnemonicParsing="false" onAction="#buyButtonClicked" prefHeight="19.0" prefWidth="118.0" text="Buy" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="26.0" />
+      <Button fx:id="clearCartButton" layoutX="76.0" layoutY="461.0" mnemonicParsing="false" onAction="#clearCartButtonClicked" prefHeight="25.0" prefWidth="118.0" text=" Clear Cart" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="76.0" />
+    </children>
+</AnchorPane>

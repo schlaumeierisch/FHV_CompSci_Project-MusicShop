@@ -1,0 +1,157 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+task cleanBuildFiles(type: Exec) {
+    workingDir "$projectDir\\build\\classes\\java\\main"
+    //    workingDir "$projectDir\\src\\main\\java"
+
+    String terminal = "sh"
+    String arg = "-c"
+    String removeCommand = "rm"
+
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        terminal = "cmd"
+        arg = "/c"
+        removeCommand = "del"
+    }
+
+    String removeBuildFiles_Command = removeCommand + ' ' + 'sharedrmi.jar'
+
+    commandLine terminal, arg, removeBuildFiles_Command
+}
+
+/*
+task buildClassFiles(type: Exec) {
+    workingDir "$projectDir\\src\\main\\java\\sharedrmi"
+
+    String terminal = "sh"
+    String arg = "-c"
+
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        terminal = "cmd"
+        arg = "/c"
+    }
+
+    String buildClassFiles_Command = 'javac ' +
+            'application\\api\\*.java ' +
+            'application\\dto\\*.java ' +
+            'domain\\enums\\*.java ' +
+            'domain\\valueobjects\\*.java '
+
+    commandLine terminal, arg, buildClassFiles_Command
+}
+*/
+
+task buildJarFile(type: Exec) {
+    workingDir "$projectDir\\build\\classes\\java\\main"
+    // workingDir "$projectDir\\src\\main\\java"
+
+    String terminal = "sh"
+    String arg = "-c"
+
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        terminal = "cmd"
+        arg = "/c"
+    }
+
+    String buildJarFile_Command = 'jar cf .\\sharedrmi\\sharedrmi.jar ' +
+            'sharedrmi\\application\\api\\*.class ' +
+            'sharedrmi\\application\\dto\\*.class ' +
+            'sharedrmi\\application\\exceptions\\*.class ' +
+            'sharedrmi\\communication\\rmi\\*.class ' +
+            'sharedrmi\\domain\\enums\\*.class ' +
+            'sharedrmi\\domain\\valueobjects\\*.class '
+
+    commandLine terminal, arg, buildJarFile_Command
+}
+
+task addModuleInfo(type: Exec) {
+    workingDir "$projectDir\\build\\classes\\java\\main"
+
+    String terminal = "sh"
+    String arg = "-c"
+
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        terminal = "cmd"
+        arg = "/c"
+    }
+
+    //String buildJarFile_Command = "javac --patch-module sharedrmi=\"$projectDir\\build\\classes\\java\\main\" module-info.java"
+    String buildJarFile_Command = "jdeps --generate-module-info . .\\sharedrmi.jar"
+
+    //javac --patch-module <module_name>=<jar_path> <module_name>/module-info.java jar uf <jar_path> -C <module_name> module-info.class
+
+    commandLine terminal, arg, buildJarFile_Command
+}
+
+task addModuleInfo_2(type: Exec) {
+    workingDir "$projectDir\\build\\classes\\java\\main"
+
+    String terminal = "sh"
+    String arg = "-c"
+
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        terminal = "cmd"
+        arg = "/c"
+    }
+
+    //String buildJarFile_Command = "javac --patch-module sharedrmi=\"$projectDir\\build\\classes\\java\\main\" module-info.java"
+    String buildJarFile_Command = "javac --patch-module sharedrmi=\"$projectDir\\build\\classes\\java\\main\" sharedrmi\\module-info.java"
+
+    //javac --patch-module <module_name>=<jar_path> <module_name>/module-info.java jar uf <jar_path> -C <module_name> module-info.class
+
+    commandLine terminal, arg, buildJarFile_Command
+}
+
+task addModuleInfo_3(type: Exec) {
+    workingDir "$projectDir\\build\\classes\\java\\main"
+
+    String terminal = "sh"
+    String arg = "-c"
+
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        terminal = "cmd"
+        arg = "/c"
+    }
+
+    //String buildJarFile_Command = "javac --patch-module sharedrmi=\"$projectDir\\build\\classes\\java\\main\" module-info.java"
+    String buildJarFile_Command = "jar uf .\\sharedrmi\\sharedrmi.jar -C sharedrmi module-info.class"
+
+    //javac --patch-module <module_name>=<jar_path> <module_name>/module-info.java jar uf <jar_path> -C <module_name> module-info.class
+
+    commandLine terminal, arg, buildJarFile_Command
+}
+
+task build_SharedRMILib() {
+    dependsOn 'cleanBuildFiles'
+    dependsOn 'buildJarFile'
+    dependsOn 'addModuleInfo'
+
+    tasks.findByName('buildJarFile').mustRunAfter 'cleanBuildFiles'
+    tasks.findByName('addModuleInfo').mustRunAfter 'buildJarFile'
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation 'org.apache.activemq:activemq-all:5.17.0'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    compileOnly('javax.enterprise:cdi-api:2.0.SP1')
+    compileOnly('javax.ejb:javax.ejb-api:3.2.2')
+    compileOnly('javax.ws.rs:javax.ws.rs-api:2.1.1')
+    compileOnly('javax.servlet:javax.servlet-api:4.0.1')
+}
+
+test {
+    useJUnitPlatform()
+}

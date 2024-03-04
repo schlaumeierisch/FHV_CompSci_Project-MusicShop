@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.musicshopfx.SettingsController">
+    <children>
+        <AnchorPane prefHeight="46.0" prefWidth="800.0" style="-fx-background-color: #002d4c;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="14.0" layoutY="8.0" prefHeight="30.0" prefWidth="165.0" text="Settings" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+            </children></AnchorPane>
+        <AnchorPane prefHeight="200.0" prefWidth="60.0" style="-fx-background-color: f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="46.0">
+            <children>
+                <Line endX="62.0" startX="62.0" startY="460.0" stroke="#9a9a9a" strokeWidth="0.5" visible="false" AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="61.5" AnchorPane.topAnchor="-0.5" />
+                <VBox fx:id="navbarVbox" layoutY="90.0" prefHeight="405.0" prefWidth="60.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane prefHeight="30.0" prefWidth="30.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="413.0">
+               <children>
+                  <ImageView fx:id="logoutIconImage" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#logoutSymbolClicked" onMousePressed="#logoutSymbolClicked" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@../../../images/logout.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="82.0" layoutY="65.0" prefHeight="417.0" prefWidth="700.0" style="-fx-background-color: white; -fx-border-color: #9a9a9a;" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="65.0">
+            <children>
+                <Label layoutX="14.0" layoutY="-8.0" style="-fx-background-color: white;" text="General Information">
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding></Label>
+            <Label layoutX="22.0" layoutY="44.0" text="Username:">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="usernameLabel" layoutX="83.0" layoutY="43.0" text="essiga" />
+            <Label fx:id="roleDescLabel" layoutX="22.0" layoutY="69.0" text="Roles:">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="roleLabel" layoutX="83.0" layoutY="68.0" prefHeight="17.0" prefWidth="581.0" text="salesperson, operator" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="82.0" layoutY="219.0" prefHeight="265.0" prefWidth="700.0" style="-fx-background-color: white; -fx-border-color: #9a9a9a;" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="219.0">
+            <children>
+                <Label layoutX="13.0" layoutY="-9.0" style="-fx-background-color: white;" text="Subscribe / Unsubscribe">
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </Label>
+            <Button fx:id="applyButton" layoutX="581.0" layoutY="226.0" mnemonicParsing="false" onAction="#applyButtonClicked" prefHeight="25.0" prefWidth="100.0" text="Apply" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="19.0" />
+            <TableView fx:id="subscriptionView" focusTraversable="false" layoutX="24.0" layoutY="28.0" minHeight="189.0" minWidth="350.0" prefHeight="189.0" prefWidth="659.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="27.0">
+               <columns>
+                  <TableColumn fx:id="topicCol" editable="false" maxWidth="496.0" minWidth="250.0" prefWidth="496.0" sortable="false" text="Topic" />
+                  <TableColumn fx:id="subscribedCol" editable="false" maxWidth="332.0" minWidth="43.0" prefWidth="160.0" sortable="false" style="-fx-alignment: CENTER;" text="Subscribed" />
+               </columns>
+            </TableView>
+            <Label fx:id="topicErrorLabel" layoutX="368.0" layoutY="231.0" prefHeight="17.0" prefWidth="220.0" textFill="#d91b1b" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="145.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
